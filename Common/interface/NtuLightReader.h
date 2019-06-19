@@ -135,6 +135,12 @@ class NtuLightReader {
            gROOT->cd();
       return *this;
     }
+    AutoSavedObject& operator=( std::vector<TObject*> vObj ) {
+      for(auto obj = vObj.begin(); obj != vObj.end(); obj++) {
+        objectList.push_back( *obj );
+      }
+      return *this; 
+    }
    private:
     obj_list objectList;
     dir_map directoryMap;
