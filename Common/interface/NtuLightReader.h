@@ -151,7 +151,9 @@ class NtuLightReader {
   }
   virtual bool writable( const std::string& type ) {
     if ( type.substr( 0, 2 ) == "TH"       ) return true;
+    if ( type.substr( 0, 6 ) == "TGraph"   ) return true; 
     if ( type                == "TProfile" ) return true;
+    if ( type                == "TCanvas"  ) return true;
     return false;
   }
   void autoSave( TList* list = 0 ) {
